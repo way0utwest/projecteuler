@@ -1,22 +1,29 @@
 import sys
-def FindSmallest(digits):
-    winner, x, done = 0, 10, False
-    while (done == False):
-        keeplooping = True
-        for i in range(digits):
-            if x % (i + 1) > 0:
-                keeplooping = False
-        if keeplooping:
-            winner = x
-            done = True
-        else:
+import time
+
+
+def Solution(digits):
+    winner, x = 0, 1000
+    while (winner == 0):
+        for i in (range(1, (digits + 1))):
+            #print(x, i, (x%i))
+            if (x % i) > 0:
+                break
+            else:
+                if (i == digits):
+                    winner = x
+        if (winner == 0):
             x += 1
+        #print(x, digits, winner)
     return winner
 
 
-
 if __name__ == "__main__":
-    size = int(sys.argv[1])
-    if size is None:
-        size = 99
-    print(size, FindSmallest(size))
+    if len(sys.argv) > 1:
+        size = int(sys.argv[1])
+    else:
+        size = 10
+    start = time.time()
+    print(size, Solution(size))
+    end = time.time()
+    print("Elapsed:", end - start)
