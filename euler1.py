@@ -10,4 +10,4 @@ def euler1(limit):
 
 if __name__ == "__main__":
     y = euler1(1000)
-    print("Sum: ", y)
+    print("Euler 1 Sum: ", y)
