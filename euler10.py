@@ -1,6 +1,14 @@
 print("euler 10 goes here")
 
-import os
+def euler10(limit):
+    x = range(1,limit)
+    sum = 0
+    for i in x:
+        if (i % 3 == 0) or (i % 5 == 0):
+            sum += i
+            print(i)
+    return (sum)
 
-d = [1,2,3,4,5]
-print(d)
+if __name__ == "__main__":
+    y = euler10(1000)
+    print("Sum: ", y)
